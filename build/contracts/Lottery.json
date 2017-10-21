@@ -4,6 +4,19 @@
     {
       "constant": true,
       "inputs": [],
+      "name": "participantsCounter",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
       "name": "owner",
       "outputs": [
         {
@@ -71,7 +84,7 @@
       "type": "event"
     }
   ],
-  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60008054600160a060020a03191633600160a060020a03161781556001555b5b61029b8061003f6000396000f300606060405236156100495763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146101b8578063f2fde38b146101e7575b5b60008080670de0b6b3a764000034101561006357600080fd5b6001805480820190915560009081526002602052604090819020805473ffffffffffffffffffffffffffffffffffffffff191633600160a060020a0316908117909155907f8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf569034905190815260200160405180910390a2600154600a14156101b1574340600a5b7f010000000000000000000000000000000000000000000000000000000000000091901a810204925060026000600a855b06815260208101919091526040908101600090812054600191909155600160a060020a0390811693503016803192508391903180156108fc029151600060405180830381858888f19350505050151561017357600080fd5b81600160a060020a03167fe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec868260405190815260200160405180910390a25b5b5b505050005b34156101c357600080fd5b6101cb610208565b604051600160a060020a03909116815260200160405180910390f35b34156101f257600080fd5b610206600160a060020a0360043516610217565b005b600054600160a060020a031681565b60005433600160a060020a0390811691161461023257600080fd5b600160a060020a0381161561026a576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b505600a165627a7a72305820aa46e68b15f1c7a00866202ce27d53611839e88c26b9f5882389412dcc423d940029",
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60008054600160a060020a03191633600160a060020a03161781556001555b5b6102d58061003f6000396000f300606060405236156100545763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416634572bc8881146101c75780638da5cb5b146101ec578063f2fde38b1461021b575b5b60008080670de0b6b3a764000034101561006e57600080fd5b6001805480820190915560009081526002602052604090819020805473ffffffffffffffffffffffffffffffffffffffff191633600160a060020a0316908117909155907f8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf569034905190815260200160405180910390a2600154600a14156101c05760001943014060005b7f010000000000000000000000000000000000000000000000000000000000000091901a810204925060026000600a855b06815260208101919091526040908101600090812054600191909155600160a060020a0390811693503016803192508391903180156108fc029151600060405180830381858888f19350505050151561018257600080fd5b81600160a060020a03167fe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec868260405190815260200160405180910390a25b5b5b505050005b34156101d257600080fd5b6101da61023c565b60405190815260200160405180910390f35b34156101f757600080fd5b6101ff610242565b604051600160a060020a03909116815260200160405180910390f35b341561022657600080fd5b61023a600160a060020a0360043516610251565b005b60015481565b600054600160a060020a031681565b60005433600160a060020a0390811691161461026c57600080fd5b600160a060020a038116156102a4576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b505600a165627a7a72305820cedb8f1a35bc7acc61805178cdfa95c221d8542379cc3614ac4bdc86d8b2c5de0029",
   "networks": {
     "1508590615273": {
       "events": {
@@ -113,8 +126,295 @@
       "links": {},
       "address": "0xe1a603134886094026a64e62a3e8a534d93bd2ff",
       "updated_at": 1508595896001
+    },
+    "1508596199763": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x60bb51bad8282ea70b33e3e0b18b998528da49c9",
+      "updated_at": 1508597317879
+    },
+    "1508598313467": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x2beccf56b4f1eb02de0a30f2553d71f2cfbb3c20",
+      "updated_at": 1508598318085
+    },
+    "1508599210899": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x3f9b286e3e5ec0f50db9a60370c2ca8697eb673c",
+      "updated_at": 1508599281644
+    },
+    "1508599840616": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x84bc265ccd6df4504870260c104ef18e88af60f6",
+      "updated_at": 1508599852480
+    },
+    "1508600003058": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x78c5274df8e2bddb1b5f73c45f0cfa59fe8cdff6",
+      "updated_at": 1508600024341
+    },
+    "1508600102978": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xa479b7fcb1d7b81c712656c8d0a9bbe56648190f",
+      "updated_at": 1508600113321
+    },
+    "1508600808965": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xd2804ad6b73aa9e83f469ccf03d5bb96aa72ba32",
+      "updated_at": 1508600991823
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1508595896001
+  "updated_at": 1508600991823
 }

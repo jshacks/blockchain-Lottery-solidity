@@ -3,15 +3,14 @@ pragma solidity ^0.4.14;
 contract Lottery {
 
     address public owner;
-    uint private participantsCounter;
+    uint public participantsCounter;
     uint private constant participantsRequired = 10; //max 250
     uint private constant ticketPrice = 1 ether;
     
-     mapping(uint => address) private participants;
+    mapping(uint => address) private participants;
 
     event NewParticipant(address indexed participant, uint256 value);
     event NewWinner(address indexed winner, uint256 amount);
-
 
    /**
    * @dev The constructor sets the original `owner` of the contract to the sender
@@ -55,7 +54,7 @@ contract Lottery {
         NewParticipant(msg.sender,msg.value);
         if ( participantsRequired == participantsCounter)
         {
-            uint rand = (uint) (block.blockhash(block.number)[10]);
+            uint rand = (uint) (block.blockhash(block.number-1)[0]);
             address winner = participants[rand % participantsRequired];
             participantsCounter = 0;
             uint prize = this.balance;

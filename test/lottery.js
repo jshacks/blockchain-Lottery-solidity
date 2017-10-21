@@ -1,18 +1,19 @@
 var Lottery = artifacts.require("./Lottery.sol");
 
 contract('Lottery', function(accounts) {
+  it("Print balances", function() {
+    console.log("Printing balances:");
+    for (i=0;i<accounts.length;i++)
+    {
+       console.log("Account "+i+": " + web3.fromWei(web3.eth.getBalance(accounts[i]).toNumber())+ "ether");
+    }
+  });
+
   it("Contribute with 1 eth from 10 addresses", function() {
     var contract;
     return Lottery.deployed().then(function(instance){
         contract = instance;
     }).then(function(){
-
-        console.log("Printing initial balances:");
-        for (i=0;i<accounts.length;i++)
-        {
-           console.log("Account "+i+": " + web3.fromWei(web3.eth.getBalance(accounts[i]).toNumber())+ "ether");
-        }
-
         for (i=0;i<accounts.length;i++)
         {
             var tx = {
@@ -21,19 +22,17 @@ contract('Lottery', function(accounts) {
                 value: web3.toWei(1, "ether")
             };
             contract.sendTransaction(tx);
-        }
+            
+        }        
+    });
+  });
 
-        
-    }).then(function(){
-        console.log("Printing new balances:");
+    it("Print balances again", function() {
+        console.log("Printing balances:");
         for (i=0;i<accounts.length;i++)
         {
            console.log("Account "+i+": " + web3.fromWei(web3.eth.getBalance(accounts[i]).toNumber())+ "ether");
         }
     });
-    
-
-     
-  });
 
 });
