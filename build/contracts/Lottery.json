@@ -1,0 +1,120 @@
+{
+  "contract_name": "Lottery",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "payable": true,
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "participant",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewParticipant",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "winner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewWinner",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60008054600160a060020a03191633600160a060020a03161781556001555b5b61029b8061003f6000396000f300606060405236156100495763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146101b8578063f2fde38b146101e7575b5b60008080670de0b6b3a764000034101561006357600080fd5b6001805480820190915560009081526002602052604090819020805473ffffffffffffffffffffffffffffffffffffffff191633600160a060020a0316908117909155907f8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf569034905190815260200160405180910390a2600154600a14156101b1574340600a5b7f010000000000000000000000000000000000000000000000000000000000000091901a810204925060026000600a855b06815260208101919091526040908101600090812054600191909155600160a060020a0390811693503016803192508391903180156108fc029151600060405180830381858888f19350505050151561017357600080fd5b81600160a060020a03167fe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec868260405190815260200160405180910390a25b5b5b505050005b34156101c357600080fd5b6101cb610208565b604051600160a060020a03909116815260200160405180910390f35b34156101f257600080fd5b610206600160a060020a0360043516610217565b005b600054600160a060020a031681565b60005433600160a060020a0390811691161461023257600080fd5b600160a060020a0381161561026a576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b505600a165627a7a72305820aa46e68b15f1c7a00866202ce27d53611839e88c26b9f5882389412dcc423d940029",
+  "networks": {
+    "1508590615273": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xe1a603134886094026a64e62a3e8a534d93bd2ff",
+      "updated_at": 1508595896001
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1508595896001
+}
