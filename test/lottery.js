@@ -5,7 +5,7 @@ contract('Lottery', function(accounts) {
     console.log("Printing balances:");
     for (i=0;i<accounts.length;i++)
     {
-       console.log("Account "+i+": " + web3.fromWei(web3.eth.getBalance(accounts[i]).toNumber())+ "ether");
+       console.log("Account "+accounts[i]+": " + web3.fromWei(web3.eth.getBalance(accounts[i]).toNumber())+ "ether");
     }
   });
 
@@ -22,8 +22,16 @@ contract('Lottery', function(accounts) {
                 value: web3.toWei(1, "ether")
             };
             contract.sendTransaction(tx);
-            
-        }        
+        }
+        
+        contract.lastWinner().then(function(winner){
+                console.log("Last winner: "+winner);
+        });
+          
+        contract.lastPrize().then(function(prize){
+                console.log("Last prize: "+prize);
+        });
+                           
     });
   });
 
@@ -31,7 +39,7 @@ contract('Lottery', function(accounts) {
         console.log("Printing balances:");
         for (i=0;i<accounts.length;i++)
         {
-           console.log("Account "+i+": " + web3.fromWei(web3.eth.getBalance(accounts[i]).toNumber())+ "ether");
+           console.log("Account "+accounts[i]+": " + web3.fromWei(web3.eth.getBalance(accounts[i]).toNumber())+ "ether");
         }
     });
 

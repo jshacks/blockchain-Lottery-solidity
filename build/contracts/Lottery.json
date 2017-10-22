@@ -28,6 +28,19 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "lastPrize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
@@ -37,6 +50,19 @@
       ],
       "name": "transferOwnership",
       "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "lastWinner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
       "payable": false,
       "type": "function"
     },
@@ -84,7 +110,7 @@
       "type": "event"
     }
   ],
-  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60008054600160a060020a03191633600160a060020a03161781556001555b5b6102d58061003f6000396000f300606060405236156100545763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416634572bc8881146101c75780638da5cb5b146101ec578063f2fde38b1461021b575b5b60008080670de0b6b3a764000034101561006e57600080fd5b6001805480820190915560009081526002602052604090819020805473ffffffffffffffffffffffffffffffffffffffff191633600160a060020a0316908117909155907f8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf569034905190815260200160405180910390a2600154600a14156101c05760001943014060005b7f010000000000000000000000000000000000000000000000000000000000000091901a810204925060026000600a855b06815260208101919091526040908101600090812054600191909155600160a060020a0390811693503016803192508391903180156108fc029151600060405180830381858888f19350505050151561018257600080fd5b81600160a060020a03167fe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec868260405190815260200160405180910390a25b5b5b505050005b34156101d257600080fd5b6101da61023c565b60405190815260200160405180910390f35b34156101f757600080fd5b6101ff610242565b604051600160a060020a03909116815260200160405180910390f35b341561022657600080fd5b61023a600160a060020a0360043516610251565b005b60015481565b600054600160a060020a031681565b60005433600160a060020a0390811691161461026c57600080fd5b600160a060020a038116156102a4576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b505600a165627a7a72305820cedb8f1a35bc7acc61805178cdfa95c221d8542379cc3614ac4bdc86d8b2c5de0029",
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60008054600160a060020a033316600160a060020a031991821617825560018290556002805490911690556003555b5b61037e8061004f6000396000f3006060604052361561006a5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416634572bc8881146102075780638da5cb5b1461022c5780639d400a0b1461025b578063f2fde38b14610280578063fe188184146102a1575b5b60008080670de0b6b3a764000034101561008457600080fd5b6001805480820190915560009081526004602052604090819020805473ffffffffffffffffffffffffffffffffffffffff191633600160a060020a0316908117909155907f8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf569034905190815260200160405180910390a2600154600a14156102005760001943014060005b7f010000000000000000000000000000000000000000000000000000000000000091901a810204925060046000600a855b068152602081019190915260409081016000908120546001919091556002805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392831690811790915530909116803160038190559194509092508391903180156108fc029151600060405180830381858888f1935050505015156101c257600080fd5b81600160a060020a03167fe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec868260405190815260200160405180910390a25b5b5b505050005b341561021257600080fd5b61021a6102d0565b60405190815260200160405180910390f35b341561023757600080fd5b61023f6102d6565b604051600160a060020a03909116815260200160405180910390f35b341561026657600080fd5b61021a6102e5565b60405190815260200160405180910390f35b341561028b57600080fd5b61029f600160a060020a03600435166102eb565b005b34156102ac57600080fd5b61023f610343565b604051600160a060020a03909116815260200160405180910390f35b60015481565b600054600160a060020a031681565b60035481565b60005433600160a060020a0390811691161461030657600080fd5b600160a060020a0381161561033e576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b50565b600254600160a060020a0316815600a165627a7a7230582016ed4af0a7f1637a3f91062aebedcb9bc2b797b3bf81048dfad6de6bfc10250a0029",
   "networks": {
     "1508590615273": {
       "events": {
@@ -413,8 +439,131 @@
       "links": {},
       "address": "0xd2804ad6b73aa9e83f469ccf03d5bb96aa72ba32",
       "updated_at": 1508600991823
+    },
+    "1508657419664": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x5a5e5b952bae0ce0bd13a963cd94186164f5b17d",
+      "updated_at": 1508658487593
+    },
+    "1508665406402": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x83aedfffd13c42b6e91ef6569e3823ed55ae58ce",
+      "updated_at": 1508665414931
+    },
+    "1508665803451": {
+      "events": {
+        "0x8ad7d0c20f6e36eda88f260780fd016c8c0b7bf250f8c9a4236ef478df7acf56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewParticipant",
+          "type": "event"
+        },
+        "0xe6b9e1659282e93b3a484308db69e5d1cac21051d45ee0fcb6f72399541cec86": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewWinner",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x83aedfffd13c42b6e91ef6569e3823ed55ae58ce",
+      "updated_at": 1508665924812
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1508600991823
+  "updated_at": 1508665924812
 }

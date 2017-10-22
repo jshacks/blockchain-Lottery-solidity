@@ -6,7 +6,9 @@ contract Lottery {
     uint public participantsCounter;
     uint private constant participantsRequired = 10; //max 250
     uint private constant ticketPrice = 1 ether;
-    
+    address public lastWinner;
+    uint public lastPrize;
+
     mapping(uint => address) private participants;
 
     event NewParticipant(address indexed participant, uint256 value);
@@ -19,6 +21,8 @@ contract Lottery {
     function Lottery() {
         owner = msg.sender;
         participantsCounter = 0;
+        lastWinner = 0;
+        lastPrize = 0;
      }
 
     /**
@@ -58,6 +62,8 @@ contract Lottery {
             address winner = participants[rand % participantsRequired];
             participantsCounter = 0;
             uint prize = this.balance;
+            lastWinner = winner;
+            lastPrize = prize;
             winner.transfer(this.balance);
             NewWinner(winner,prize);
         }
